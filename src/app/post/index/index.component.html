@@ -1,0 +1,50 @@
+<div class="container">
+  <h1 class="text-center">Angular 17 crud application</h1>
+  <a
+    href="#"
+    [routerLink]="['/post/create/']"
+    routerLinkActive="router-link-active"
+    class="btn btn-success"
+    >Create Post</a
+  >
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Post</th>
+        <th width="250px">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of posts">
+        <td>{{ post.id }}</td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.body }}</td>
+        <td>
+          <a
+            href="#"
+            [routerLink]="['/post/', post.id, 'view']"
+            routerLinkActive="router-link-active"
+            class="btn btn-info m-2"
+            >View</a
+          >
+          <a
+            href="#"
+            [routerLink]="['/post/', post.id, 'edit']"
+            routerLinkActive="router-link-active"
+            class="btn btn-primary m-2"
+            >Edit</a
+          >
+          <button
+            class="btn btn-danger m-2"
+            type="button"
+            (click)="deletePost(post.id)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
